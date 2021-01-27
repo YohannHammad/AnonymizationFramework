@@ -24,7 +24,7 @@ Then, you can access to the documentation from your favorite web browser at : `h
 # Credits
 
 This whole framework has been developed by a group of five students for a school project.
-+ [Yohan Hammad](https://www.linkedin.com/in/yohann-hammad/)
++ [Yohann Hammad](https://www.linkedin.com/in/yohann-hammad/)
 + [Théodore Grasteau](https://www.linkedin.com/in/theodore-grasteau/)
 + [Alan Frechette](https://www.linkedin.com/in/alan-frechette-3b5b56157/)
 + [Hortense Arlaud](https://www.linkedin.com/in/hortense-arlaud-a02106197/)
