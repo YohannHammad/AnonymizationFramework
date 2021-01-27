@@ -453,7 +453,7 @@ annonymizeGDATable("username", "password",                          #The credent
 # Appendices
 
 This whole framework has been developed by a group of five students in the context of a data security and anonymization project.
-+ [Yohan Hammad](https://www.linkedin.com/in/yohann-hammad/)
++ [Yohann Hammad](https://www.linkedin.com/in/yohann-hammad/)
 + [Théodore Grasteau](https://www.linkedin.com/in/theodore-grasteau/)
 + [Alan Frechette](https://www.linkedin.com/in/alan-frechette-3b5b56157/)
 + [Hortense Arlaud](https://www.linkedin.com/in/hortense-arlaud-a02106197/)
