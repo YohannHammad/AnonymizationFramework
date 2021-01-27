@@ -57,7 +57,7 @@ K-Anonymization for K=2 on the initial dataset
 </center>
 
 The previous step makes it impossible to find the identity of someone in the base, even when knowing his [quasi-identifiers](#quasi-identifiers). However, it is still possible to find the sensitive values for someone. For example, in the first cluster we can't distinguish the person with `QUID1=1` and `QUID2=5` from the person with `QUID1=2` and `QUID2=6`, but we can be sure that these persons have 'a' as sensitive value, since this is the single sensitive value in the cluster.
-This is why we apply also the [L-Diversity](https://en.wikipedia.org/wiki/L-diversity). The idea here is to group clusters together until they have at least L different values for the sensitive value. With this additional step, even if the attacker can find the correct cluster of someone, he will have L possible values for the sensitive value.
+This is why we apply also the [L-Diversity](https://en.wikipedia.org/wiki/L-diversity). Our algorithm is naive. The idea here is to group clusters together until they have at least L different values for the sensitive value. We isolate all the non-l-diverse clusters and then merge them two by two. We put back the outgoing l-diverse clusters, and we start again the algorithm with the clusters that still do not satisfy the l-diversity. With this additional step, even if the attacker can find the correct cluster of someone, he will have L possible values for the sensitive value.
 
 <center>
 
@@ -316,7 +316,8 @@ annonymizeGDATable("username", "password",                      #The credentials
                    "banking", "cards",                          #Database and table name for the local database
                    "raw_banking", "cards",                      #Database and table name for the GDA database
                    table_structure, ignore_fields, position_fields, indexation, quid_cols, sensitive_cols,
-                   4,                                           #Value for K 
+                   4,                                           #Value for K
+                   2,                                           #Value for L
                    gda_raw_transform=raw_transform, use_cache=False)
 ```
 
@@ -443,6 +444,7 @@ annonymizeGDATable("username", "password",                          #The credent
                    "medical", "raw_pathologies_patients",           #Database and table name to use as source in the local MySQL framework
                    struct, ignore_fields, position_fields, indexation, quid_cols, sensitive_cols, 
                    4,                                               #Value for K
+                   2,                                               #Value for L
                    postion_in_lat_lon=position_in_lat_lon, 
                    local_table_already_created=True,                #Need to be set to True to use the local table as source
                    str_sort_function=sortStringListBySimilarityButFast) #Recommended function for huge amounts of data since the default function is more efficient but also much longer to run. (O(n) vs. O(n^4))
